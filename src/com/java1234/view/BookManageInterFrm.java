@@ -134,7 +134,7 @@ public class BookManageInterFrm extends JInternalFrame {
         });
         
         JButton btnDelete = new JButton("Delete");
-        btnDelete.setIcon(new ImageIcon(BookManageInterFrm.class.getResource("/images/exit.png")));
+        btnDelete.setIcon(new ImageIcon(BookManageInterFrm.class.getResource("/images/delete.png")));
         btnDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookDeleteActionPerformed(e);
