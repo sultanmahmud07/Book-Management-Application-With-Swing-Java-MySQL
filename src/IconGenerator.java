@@ -26,11 +26,11 @@ public class IconGenerator {
     }
     
     private static void generateIcon(String name) {
-        int width = 32;
-        int height = 32;
+        int width = 16;
+        int height = 16;
         if (name.equals("logo.png") || name.equals("sdtbu.png")) {
-            width = 64;
-            height = 64;
+            width = 48;
+            height = 48;
         }
         
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
