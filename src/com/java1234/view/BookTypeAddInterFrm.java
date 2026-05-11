@@ -11,8 +11,10 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 import com.java1234.dao.BookTypeDao;
 import com.java1234.model.BookType;
@@ -22,7 +24,7 @@ import com.java1234.util.StringUtil;
 public class BookTypeAddInterFrm extends JInternalFrame {
     private JTextField bookTypeNameTxt;
     private JTextArea bookTypeDescTxt;
-    
+
     private DbUtil dbUtil = new DbUtil();
     private BookTypeDao bookTypeDao = new BookTypeDao();
 
@@ -33,76 +35,82 @@ public class BookTypeAddInterFrm extends JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Book Category Adding");
-        setBounds(100, 100, 450, 300);
-        
+        setBounds(100, 100, 650, 350);
+
         JLabel lblBookTypeName = new JLabel("Book type name:");
-        
+
         JLabel lblBookTypeDescription = new JLabel("Book type descripton:");
-        
+
         bookTypeNameTxt = new JTextField();
         bookTypeNameTxt.setColumns(10);
-        
+
         bookTypeDescTxt = new JTextArea();
-        
+
         JButton btnAdd = new JButton("Add");
+        btnAdd.setIcon(new ImageIcon(BookTypeAddInterFrm.class.getResource("/images/add.png")));
         btnAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookTypeAddActionPerformed(e);
             }
         });
-        
+
         JButton btnReset = new JButton("Reset");
+        btnReset.setIcon(new ImageIcon(BookTypeAddInterFrm.class.getResource("/images/reset.png")));
         btnReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetValueActionPerformed(e);
             }
         });
-        
+
         GroupLayout groupLayout = new GroupLayout(getContentPane());
         groupLayout.setHorizontalGroup(
-            groupLayout.createParallelGroup(Alignment.LEADING)
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addGap(47)
-                    .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                groupLayout.createParallelGroup(Alignment.LEADING)
                         .addGroup(groupLayout.createSequentialGroup()
-                            .addComponent(lblBookTypeName)
-                            .addGap(28)
-                            .addComponent(bookTypeNameTxt, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
-                        .addGroup(groupLayout.createSequentialGroup()
-                            .addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-                                .addComponent(btnAdd)
-                                .addComponent(lblBookTypeDescription))
-                            .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-                                .addGroup(groupLayout.createSequentialGroup()
-                                    .addPreferredGap(ComponentPlacement.RELATED)
-                                    .addComponent(bookTypeDescTxt, GroupLayout.PREFERRED_SIZE, 185, GroupLayout.PREFERRED_SIZE))
-                                .addGroup(groupLayout.createSequentialGroup()
-                                    .addGap(41)
-                                    .addComponent(btnReset)))))
-                    .addContainerGap(78, Short.MAX_VALUE))
-        );
+                                .addGap(47)
+                                .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                        .addGroup(groupLayout.createSequentialGroup()
+                                                .addComponent(lblBookTypeName)
+                                                .addGap(28)
+                                                .addComponent(bookTypeNameTxt, GroupLayout.PREFERRED_SIZE, 185,
+                                                        GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(groupLayout.createSequentialGroup()
+                                                .addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+                                                        .addComponent(btnAdd)
+                                                        .addComponent(lblBookTypeDescription))
+                                                .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                                        .addGroup(groupLayout.createSequentialGroup()
+                                                                .addPreferredGap(ComponentPlacement.RELATED)
+                                                                .addComponent(bookTypeDescTxt,
+                                                                        GroupLayout.PREFERRED_SIZE, 185,
+                                                                        GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(groupLayout.createSequentialGroup()
+                                                                .addGap(41)
+                                                                .addComponent(btnReset)))))
+                                .addContainerGap(78, Short.MAX_VALUE)));
         groupLayout.setVerticalGroup(
-            groupLayout.createParallelGroup(Alignment.LEADING)
-                .addGroup(groupLayout.createSequentialGroup()
-                    .addGap(35)
-                    .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                        .addComponent(lblBookTypeName)
-                        .addComponent(bookTypeNameTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(27)
-                    .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-                        .addComponent(lblBookTypeDescription)
-                        .addComponent(bookTypeDescTxt, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                    .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-                        .addComponent(btnAdd)
-                        .addComponent(btnReset))
-                    .addGap(24))
-        );
+                groupLayout.createParallelGroup(Alignment.LEADING)
+                        .addGroup(groupLayout.createSequentialGroup()
+                                .addGap(35)
+                                .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+                                        .addComponent(lblBookTypeName)
+                                        .addComponent(bookTypeNameTxt, GroupLayout.PREFERRED_SIZE,
+                                                GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(27)
+                                .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+                                        .addComponent(lblBookTypeDescription)
+                                        .addComponent(bookTypeDescTxt, GroupLayout.PREFERRED_SIZE, 100,
+                                                GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+                                        .addComponent(btnAdd)
+                                        .addComponent(btnReset))
+                                .addGap(24)));
         getContentPane().setLayout(groupLayout);
     }
 
     /**
      * Handle Add Action
+     * 
      * @param e
      */
     private void bookTypeAddActionPerformed(ActionEvent e) {
@@ -137,12 +145,13 @@ public class BookTypeAddInterFrm extends JInternalFrame {
 
     /**
      * Handle Reset Action
+     * 
      * @param e
      */
     private void resetValueActionPerformed(ActionEvent e) {
         this.resetValue();
     }
-    
+
     private void resetValue() {
         this.bookTypeNameTxt.setText("");
         this.bookTypeDescTxt.setText("");

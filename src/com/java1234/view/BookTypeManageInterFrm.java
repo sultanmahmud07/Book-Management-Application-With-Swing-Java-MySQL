@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 
 import com.java1234.dao.BookDao;
 import com.java1234.dao.BookTypeDao;
@@ -48,7 +49,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setTitle("Book Type Management");
-        setBounds(100, 100, 600, 480);
+        setBounds(100, 100, 870, 669);
         
         JScrollPane scrollPane = new JScrollPane();
         
@@ -58,6 +59,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
         s_bookTypeNameTxt.setColumns(10);
         
         JButton btnSearch = new JButton("Search");
+        btnSearch.setIcon(new ImageIcon(BookTypeManageInterFrm.class.getResource("/images/search.png")));
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookTypeSearchActionPerformed(e);
@@ -82,7 +84,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
                     .addGap(42)
                     .addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
                         .addComponent(panel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
+                        .addComponent(scrollPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
                     .addContainerGap(42, Short.MAX_VALUE))
         );
         groupLayout.setVerticalGroup(
@@ -94,9 +96,9 @@ public class BookTypeManageInterFrm extends JInternalFrame {
                         .addComponent(s_bookTypeNameTxt, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnSearch))
                     .addGap(26)
-                    .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
                     .addGap(18)
-                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(28, Short.MAX_VALUE))
         );
         
@@ -116,6 +118,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
         bookTypeDescTxt = new JTextArea();
         
         JButton btnUpdate = new JButton("Update");
+        btnUpdate.setIcon(new ImageIcon(BookTypeManageInterFrm.class.getResource("/images/edit.png")));
         btnUpdate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookTypeUpdateActionPerformed(e);
@@ -123,6 +126,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
         });
         
         JButton btnDelete = new JButton("Delete");
+        btnDelete.setIcon(new ImageIcon(BookTypeManageInterFrm.class.getResource("/images/exit.png")));
         btnDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookTypeDeleteActionPerformed(e);
@@ -138,7 +142,7 @@ public class BookTypeManageInterFrm extends JInternalFrame {
                         .addGroup(gl_panel.createSequentialGroup()
                             .addComponent(lblDescription)
                             .addGap(18)
-                            .addComponent(bookTypeDescTxt, GroupLayout.PREFERRED_SIZE, 347, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bookTypeDescTxt, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE))
                         .addGroup(gl_panel.createSequentialGroup()
                             .addComponent(lblId)
                             .addPreferredGap(ComponentPlacement.UNRELATED)

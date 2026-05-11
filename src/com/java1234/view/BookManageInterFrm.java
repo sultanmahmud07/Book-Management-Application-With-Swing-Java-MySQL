@@ -25,6 +25,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.TitledBorder;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 import com.java1234.dao.BookDao;
@@ -125,6 +126,7 @@ public class BookManageInterFrm extends JInternalFrame {
         bookDescTxt = new JTextArea();
         
         JButton btnUpdate = new JButton("Update");
+        btnUpdate.setIcon(new ImageIcon(BookManageInterFrm.class.getResource("/images/edit.png")));
         btnUpdate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookUpdateActionPerformed(e);
@@ -132,6 +134,7 @@ public class BookManageInterFrm extends JInternalFrame {
         });
         
         JButton btnDelete = new JButton("Delete");
+        btnDelete.setIcon(new ImageIcon(BookManageInterFrm.class.getResource("/images/exit.png")));
         btnDelete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookDeleteActionPerformed(e);
@@ -231,6 +234,7 @@ public class BookManageInterFrm extends JInternalFrame {
         s_bookTypeJcb = new JComboBox();
         
         JButton btnSearch = new JButton("Search");
+        btnSearch.setIcon(new ImageIcon(BookManageInterFrm.class.getResource("/images/search.png")));
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bookSearchActionPerformed(e);

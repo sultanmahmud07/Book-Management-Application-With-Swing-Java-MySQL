@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -54,7 +55,7 @@ public class LogOnFrm extends JFrame {
         setTitle("Administrator Login");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 340);
+        setBounds(100, 100, 600, 380);
         setLocationRelativeTo(null); // Center the window
 
         contentPane = new JPanel();
@@ -62,11 +63,14 @@ public class LogOnFrm extends JFrame {
         setContentPane(contentPane);
 
         JLabel lblSystemName = new JLabel("Library Management System");
+        lblSystemName.setIcon(new ImageIcon(LogOnFrm.class.getResource("/images/logo.png")));
         lblSystemName.setFont(new Font("Dialog", Font.BOLD, 22));
 
         JLabel lblUserName = new JLabel("User Name:");
+        lblUserName.setIcon(new ImageIcon(LogOnFrm.class.getResource("/images/userName.png")));
 
         JLabel lblPassword = new JLabel("Password:");
+        lblPassword.setIcon(new ImageIcon(LogOnFrm.class.getResource("/images/password.png")));
 
         userNameTxt = new JTextField();
         userNameTxt.setColumns(10);
@@ -74,6 +78,7 @@ public class LogOnFrm extends JFrame {
         passwordTxt = new JPasswordField();
 
         JButton btnLogin = new JButton("Login in");
+        btnLogin.setIcon(new ImageIcon(LogOnFrm.class.getResource("/images/login.png")));
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 loginActionPerformed(e);
@@ -81,6 +86,7 @@ public class LogOnFrm extends JFrame {
         });
 
         JButton btnReset = new JButton("Reset");
+        btnReset.setIcon(new ImageIcon(LogOnFrm.class.getResource("/images/reset.png")));
         btnReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 resetValueActionPerformed(e);
@@ -91,7 +97,7 @@ public class LogOnFrm extends JFrame {
         gl_contentPane.setHorizontalGroup(
                 gl_contentPane.createParallelGroup(Alignment.LEADING)
                         .addGroup(gl_contentPane.createSequentialGroup()
-                                .addGap(86)
+                                .addGap(100)
                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
                                         .addComponent(lblSystemName)
                                         .addGroup(gl_contentPane.createSequentialGroup()
@@ -106,7 +112,7 @@ public class LogOnFrm extends JFrame {
                                                                         .createParallelGroup(Alignment.LEADING, false)
                                                                         .addComponent(passwordTxt)
                                                                         .addComponent(userNameTxt,
-                                                                                GroupLayout.DEFAULT_SIZE, 120,
+                                                                                GroupLayout.DEFAULT_SIZE, 180,
                                                                                 Short.MAX_VALUE)))
                                                         .addGroup(gl_contentPane.createSequentialGroup()
                                                                 .addGap(50)
